@@ -29,14 +29,14 @@ const Header = () => {
 
     return (
         <header>
-            <Link to="/" className="logo" onClick={() => window.scroll({ top: 0 })}>Peliculas</Link>
+            <Link to="/Movies-App/" className="logo" onClick={() => window.scroll({ top: 0 })}>Peliculas</Link>
             <div className={`${menu!==''?'nav-active container-generos':'container-generos'}`}>
                 <div id="generos">
                     <p onClick={() => clases === "" ? setClases("click") : setClases("")} className={`${clases === "click" ? "rotacion" : ""} hover`}>Generos</p>
                     <ul className={`${clases === "" ? "" : "genero-active"} nav-links`}>
                         {generos.length > 0 && generos.map((elemento, indice) =>
                             <li key={indice}>
-                                <Link to={`/${elemento.id}`} className="links hover" key={indice} onClick={(id) => handleClases(id)} name={elemento.name} id={elemento.id}>{elemento.name}</Link>
+                                <Link to={`/Movies-App/${elemento.id}`} className="links hover" key={indice} onClick={(id) => handleClases(id)} name={elemento.name} id={elemento.id}>{elemento.name}</Link>
                             </li>
                         )}
                     </ul>
