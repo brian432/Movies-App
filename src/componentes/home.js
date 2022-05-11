@@ -37,7 +37,7 @@ const Home = () => {
     //manejo de eventos
 
     const handelClick = (e) => {
-        history(`/detalle?movieID=${e}`);
+        history(`/Movies-App/detalle?movieID=${e}`);
     }
 
     const handlePage = (pagina) => {
@@ -47,23 +47,23 @@ const Home = () => {
         if (pagina === "+") {
             if (typeof search === 'undefined' && typeof genero === 'undefined') {
                 page !== null ?
-                    history(`/?page=${parseInt(page) + 1}`) :
-                    history(`/?page=${2}`);
+                    history(`/Movies-App/?page=${parseInt(page) + 1}`) :
+                    history(`/Movies-App/?page=${2}`);
             } else if (typeof search !== 'undefined') {
                 page !== null ?
-                    history(`/${search}/${movie}?page=${parseInt(page) + 1}`) :
-                    history(`/${search}/${movie}?page=${2}`);
+                    history(`/Movies-App/${search}/${movie}?page=${parseInt(page) + 1}`) :
+                    history(`/Movies-App/${search}/${movie}?page=${2}`);
             } else {
                 page !== null ?
-                    history(`/${genero}?page=${parseInt(page) + 1}`) :
-                    history(`/${genero}?page=${2}`)
+                    history(`/Movies-App/${genero}?page=${parseInt(page) + 1}`) :
+                    history(`/Movies-App/${genero}?page=${2}`)
             }
         } else {
             typeof genero === 'undefined' && typeof search === 'undefined' ?
-                history(`/?page=${parseInt(page) - 1}`) :
+                history(`/Movies-App/?page=${parseInt(page) - 1}`) :
                 typeof search !== 'undefined' ?
-                    history(`/${search}/${movie}?page=${parseInt(page) - 1}`) :
-                    history(`/${genero}?page=${parseInt(page) - 1}`)
+                    history(`/Movies-App/${search}/${movie}?page=${parseInt(page) - 1}`) :
+                    history(`/Movies-App/${genero}?page=${parseInt(page) - 1}`)
         }
     }
     return (

@@ -7,7 +7,7 @@ const Buscador = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        history(`/search/${search}`)
+        history(`/Movies-App/search/${search}`)
         setSearch("");
         window.scroll({
             top: 0
