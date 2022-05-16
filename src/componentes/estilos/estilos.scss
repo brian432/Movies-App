@@ -10,6 +10,9 @@ $color-background2:rgb(13, 18, 29);
 
 html{
     min-width: 320px;
+    max-width: 1920px;
+    margin: auto;
+    background-color: $color-background2;
 }
 
 .App{
@@ -58,6 +61,7 @@ header{
     height: 80px;
     gap: 20px;
     backdrop-filter: blur(4px);
+    max-width: 1920px;
     .logo{
         letter-spacing: 4px;
         font-family: "Monoton", cursive;

@@ -10,6 +10,9 @@
 
 html {
   min-width: 320px;
+  max-width: 1920px;
+  margin: auto;
+  background-color: #0d121d;
 }
 
 .App {
@@ -68,6 +71,7 @@ header {
   gap: 20px;
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
+  max-width: 1920px;
 }
 
 header .logo {
