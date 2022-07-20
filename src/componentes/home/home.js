@@ -13,7 +13,7 @@ export const Home = () => {
     let page = query.get('page');
 
     const { genero, search, movie } = useParams();
-
+    console.log(query);
     useEffect(() => {
         typeof search !== 'undefined' ?
             jsonSearch() :

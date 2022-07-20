@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-
 export const Detalle = () => {
     const [detalle, setDetalle] = useState([]);
     const [trailers, setTrailers] = useState([]);
