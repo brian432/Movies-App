@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "./componentes/header";
-import Home from "./componentes/home";
-import Detalle from "./componentes/detalle";
-import './componentes/estilos/estilos.css';
+import { Header } from "./componentes/header/header";
+import { Home } from "./componentes/home/home";
+import { Detalle } from "./componentes/detalle/detalle";
 
 function App() {
-  
   return (
     <div className="App">
       <Header/>

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Buscador from "./buscador";
+import { Search } from "../search/search";
 
 const GENERO_API = "https://api.themoviedb.org/3/genre/movie/list?api_key=04c35731a5ee918f014970082a0088b1&language=es";
 
-const Header = () => {
+export const Header = () => {
     const [clases, setClases] = useState("");
     const [generos, setGeneros] = useState([]);
     const [menu, setMenu] = useState("");
@@ -41,7 +41,7 @@ const Header = () => {
                         )}
                     </ul>
                 </div>
-                <Buscador />
+                <Search />
             </div>
             <div id="hamburguesa" onClick={() => menu === "" ? setMenu("encendido") : setMenu("")}>
                 <div className={menu === "" ? "" : "linea1"}></div>
@@ -51,5 +51,3 @@ const Header = () => {
         </header>
     )
 }
-
-export default Header;

@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$color-background: rgb(1, 7, 22);
+$color-background2:rgb(13, 18, 29);
+
+html{
+    min-width: 320px;
+    max-width: 1920px;
+    margin: auto;
+    background-color: $color-background2;
+}
+
+.App{
+    min-width: 100%;
+    max-width: 1980px;
+    min-height: 100vh;
+    overflow: hidden;
+    color: white;
+    background-color:$color-background2;
+}
+//clases globales
+
+body::-webkit-scrollbar{
+    width: 10px;
+    background: $color-background2;
+}
+body::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.247);
+    border-radius:10px;
+    border-right:2px solid $color-background2;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+//HEADER
+body{
+    font-family: "Readex Pro", sans-serif;
+}
+@import '../componentes/header/header';
+@import '../componentes/detalle/detalle';
+@import '../componentes/home/home';
+@import '../componentes/search/search';
+
+
+@media(max-width:560px){
+    #Info, .home{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media(max-width:515px){
+    .home{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+@media(max-width:400px){
+    .home{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

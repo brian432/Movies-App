@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Buscador = () => {
+export const Search = () => {
     const [search, setSearch]=useState("");
     const history = useNavigate();
 
@@ -25,4 +25,3 @@ const Buscador = () => {
         </form>
     )
 }
-export default Buscador;

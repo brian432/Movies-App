@@ -1,0 +1,93 @@
+.home{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 100px;
+    padding: 1rem 3rem;
+    .cuadros {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: center;
+        background-color: $color-background;
+        color: white;
+        font-size: 0.8rem;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        height: 100%;
+            .div-img{
+                display: flex;
+                align-items: center;
+                max-height: 420px;
+                overflow: hidden;
+            }
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        .descripcion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            gap: 5px;
+            height: 55px;
+            h3 {
+                font-weight: 400;
+                font-size: 0.9rem;
+            }
+            span {
+                font-size: 1rem;
+                color: rgb(245, 190, 8);
+                &::before {
+                    content: "★";
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+}
+#SinResultados {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: inherit;
+    color: white;
+    font-size: 3rem;
+}
+
+/*Botones pagina Anterior/Siguiente*/
+
+.cambioPagina {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    position: relative;
+    z-index: 998;
+    button {
+        background-color: transparent;
+        border: none !important;
+        cursor: pointer;
+        font-size: 1rem;
+        color: white;
+    }
+}
+.container-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100vh;
+}
+@media(max-width:900px){
+    .home{
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}

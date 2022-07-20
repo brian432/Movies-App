@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const Detalle = () => {
+export const Detalle = () => {
     const [detalle, setDetalle] = useState([]);
     const [trailers, setTrailers] = useState([]);
     const [cast, setCast] = useState([]);
@@ -88,4 +88,3 @@ const Detalle = () => {
         </>
     )
 }
-export default Detalle;

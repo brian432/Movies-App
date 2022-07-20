@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -6,7 +5,7 @@ const API = `https://api.themoviedb.org/3/movie/popular?api_key=04c35731a5ee918f
 const IMAGEN_API = "https://image.tmdb.org/t/p/w500"
 const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&page=1&query="
 
-const Home = () => {
+export const Home = () => {
     const [movies, setMovies] = useState({});
     const history = useNavigate();
 
@@ -90,5 +89,3 @@ const Home = () => {
         </div>
     )
 }
-
-export default Home;

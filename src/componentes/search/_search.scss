@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    input {
+        border-radius: 5px 0 0 5px;
+        border: 1px solid;
+        padding: 10px;
+        outline: none;
+    }
+    button {
+        padding: 8px;
+        background: none;
+        border-radius: 0 5px 5px 0;
+        border: none !important;
+        font-family: inherit;
+        cursor: pointer;
+        background-color: rgb(11, 27, 58);
+        color: white;
+        &:hover {
+            background-color: rgba(13, 18, 29, 0.699);
+        }
+    }
+}
