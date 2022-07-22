@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const API = `https://api.themoviedb.org/3/movie/popular?api_key=04c35731a5ee918f014970082a0088b1&language=es&page=`;
-const IMAGEN_API = "https://image.tmdb.org/t/p/w500"
-const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&page=1&query="
+const { REACT_APP_POPULAR: POPULAR, REACT_APP_SEARCH: SEARCH, REACT_APP_IMG_POSTER: POSTER } = process.env
 
 export const Home = () => {
     const [movies, setMovies] = useState({});
@@ -13,7 +11,6 @@ export const Home = () => {
     let page = query.get('page');
 
     const { genero, search, movie } = useParams();
-    console.log(query);
     useEffect(() => {
         typeof search !== 'undefined' ?
             jsonSearch() :
@@ -22,13 +19,13 @@ export const Home = () => {
 
     //peticion a la api
     const json = async () => {
-        let peticion = await fetch(`${API}${page}&with_genres=${genero}`);
+        let peticion = await fetch(`${POPULAR}${page}&with_genres=${genero}`);
         let resultado = await peticion.json();
         setMovies(resultado.results);
     }
 
     const jsonSearch = async () => {
-        let peticion = await fetch(`${API_SEARCH}${movie}&page=${page}`);
+        let peticion = await fetch(`${SEARCH}${movie}&page=${page}`);
         let resultado = await peticion.json();
         setMovies(resultado.results)
     }
@@ -72,7 +69,7 @@ export const Home = () => {
                     movies.map((pelicula, indice) =>
                         <div className="cuadros" key={indice} onClick={() => handelClick(pelicula.id)}>
                             <div className="div-img">
-                                <img src={pelicula.poster_path?`${IMAGEN_API}${pelicula.poster_path}`:'/no-img.jpg'} alt={pelicula.title} />
+                                <img src={pelicula.poster_path ? `${POSTER}${pelicula.poster_path}` : 'no-img.jpg'} alt={pelicula.title} />
                             </div>
                             <div className="descripcion">
                                 <h3>{pelicula.original_title}</h3>

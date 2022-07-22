@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Search } from "../search/search";
-
-const GENERO_API = "https://api.themoviedb.org/3/genre/movie/list?api_key=04c35731a5ee918f014970082a0088b1&language=es";
+const { REACT_APP_API_KEY: API_KEY, REACT_APP_GENERO: GENERO } = process.env
 
 export const Header = () => {
     const [clases, setClases] = useState("");
@@ -14,7 +13,7 @@ export const Header = () => {
     }, []);
 
     const json = async () => {
-        let peticion = await fetch(`${GENERO_API}`);
+        let peticion = await fetch(`${GENERO}${API_KEY}`);
         let resultado = await peticion.json();
         setGeneros(resultado.genres);
     }
@@ -26,11 +25,10 @@ export const Header = () => {
             top: 0,
         });
     }
-
     return (
         <header>
             <Link to="/Movies-App/" className="logo" onClick={() => window.scroll({ top: 0 })}>Peliculas</Link>
-            <div className={`${menu!==''?'nav-active container-generos':'container-generos'}`}>
+            <div className={`${menu !== '' ? 'nav-active container-generos' : 'container-generos'}`}>
                 <div id="generos">
                     <p onClick={() => clases === "" ? setClases("click") : setClases("")} className={`${clases === "click" ? "rotacion" : ""} hover`}>Generos</p>
                     <ul className={`${clases === "" ? "" : "genero-active"} nav-links`}>
