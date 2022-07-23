@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./componentes/header/header";
-import { Home } from "./componentes/home/home";
-import { Detalle } from "./componentes/detalle/detalle";
+import { Home } from "./componentes/views/home/home";
+import { Detalle } from "./componentes/views/detalle/detalle";
 
 function App() {
   return (
@@ -16,5 +16,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

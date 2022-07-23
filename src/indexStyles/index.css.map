@@ -4,8 +4,8 @@
     "sources": [
         "index.scss",
         "../componentes/header/_header.scss",
-        "../componentes/detalle/_detalle.scss",
-        "../componentes/home/_home.scss",
+        "../componentes/views/detalle/_detalle.scss",
+        "../componentes/views/home/_home.scss",
         "../componentes/search/_search.scss"
     ],
     "names": [],
