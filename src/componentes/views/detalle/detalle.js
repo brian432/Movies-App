@@ -1,37 +1,18 @@
-import { useEffect, useState } from "react";
-import {getMoviesDetails}from '../../../services/getMovies'
+import { useMoviesDetails } from "../../../hooks/useMoviesDetails"
+
 const { REACT_APP_IMG_BACKGROUND: BACKGROUND_IMG, REACT_APP_IMG_POSTER: POSTER } = process.env
-
 export const Detalle = () => {
-    const [detalle, setDetalle] = useState([]);
-    const [trailers, setTrailers] = useState([]);
-    const [cast, setCast] = useState([]);
-    const [imagenes, setImagenes] = useState(null);
-
-    let query = new URLSearchParams(window.location.search);
-    let movieID = query.get('movieID');
-    console.log(imagenes);
-    useEffect(() => {
-        getMoviesDetails(movieID)
-            .then(({ detalle, trailers, cast, img }) => {
-                setDetalle(detalle)
-                setTrailers(trailers.results)
-                setCast(cast.cast.slice(0, 5))
-                img.backdrops.length > 0 ?
-                    setImagenes(img.backdrops[0].file_path) :
-                    setImagenes(img.posters[0][0].file_path)
-            })
-    }, [])
+    const { detalle, trailers, cast, imagenes }= useMoviesDetails()
     return (
         <>
             <div className="background" style={imagenes && { backgroundImage: `url(${BACKGROUND_IMG}${imagenes})` }}>
             </div>
             <section id="Info">
                 <div className="div-img">
-                    <img src={`${POSTER}${detalle?.poster_path}`} />
+                    <img src={`${POSTER}${detalle?.poster_path}`} alt={detalle.title} />
                 </div>
                 <div className="informacion">
-                    <p className="titulo">{detalle.title} <span className="puntaje">{detalle.vote_average}</span></p>
+                    <p className="titulo">{detalle.title} <span className="puntaje">{Math.round(detalle?.vote_average)}</span></p>
                     <p>Fecha de estreno: {detalle.release_date}</p>
                     <p className="descripcion">{detalle.overview}</p>
                     <div>
@@ -41,7 +22,7 @@ export const Detalle = () => {
                                 cast.map((actor, indice) =>
                                     <div key={indice} className="div-actores">
                                         <div className="div-img-actor">
-                                            <img src={actor.profile_path ? `${POSTER}${actor.profile_path}` : 'no-img.jpg'} />
+                                            <img src={actor.profile_path ? `${POSTER}${actor.profile_path}` : 'no-img.jpg'} alt={actor.name} />
                                         </div>
                                         <p>{actor.name}</p>
                                     </div>
@@ -54,7 +35,14 @@ export const Detalle = () => {
                     {
                         trailers.map((elemento, indice) =>
                             <div className="video-responsive" key={indice}>
-                                <iframe key={indice} src={`https://www.youtube.com/embed/${elemento.key}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                <iframe
+                                    key={indice}
+                                    src={`https://www.youtube.com/embed/${elemento.key}`}
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
                             </div>
                         )
                     }

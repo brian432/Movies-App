@@ -2,10 +2,6 @@ const {
     REACT_APP_API_KEY: API_KEY,
     REACT_APP_GENERO: GENERO,
     REACT_APP_API_MOVIE: API_MOVIE,
-    REACT_APP_TRAILERS: TRAILERS,
-    REACT_APP_IMG: IMG,
-    REACT_APP_IMG_API_KEY: IMG_API_KEY,
-    REACT_APP_CAST: CAST,
     REACT_APP_SEARCH: SEARCH,
     REACT_APP_POPULAR: POPULAR
 } = process.env
@@ -17,20 +13,19 @@ export const getGenresMovies = async () => {
 }
 
 export const getMoviesDetails = async (movieID) => {
-    //moviesDetails
-    const responseDetails = await fetch(`${API_MOVIE}${movieID}${API_KEY}`)
+   const responseDetails = await fetch(`${API_MOVIE}${movieID}${API_KEY}&language=es`)
     const detalle = await responseDetails.json()
 
     //trailers
-    const responseTrailers = await fetch(`${API_MOVIE}${movieID}${TRAILERS}${API_KEY}`)
+    const responseTrailers = await fetch(`${API_MOVIE}${movieID}/videos${API_KEY}&language=es`)
     const trailers = await responseTrailers.json()
 
     //cast
-    const responseCast = await fetch(`${API_MOVIE}${movieID}${CAST}${API_KEY}`)
+    const responseCast = await fetch(`${API_MOVIE}${movieID}/credits${API_KEY}&language=es`)
     const cast = await responseCast.json();
 
     //imagenes
-    const responseImg = await fetch(`${API_MOVIE}${movieID}${IMG}${IMG_API_KEY}`)
+    const responseImg = await fetch(`${API_MOVIE}${movieID}/images${API_KEY}`)
     const img = await responseImg.json()
 
     return { detalle, trailers, cast, img }
