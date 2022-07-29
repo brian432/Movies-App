@@ -29,8 +29,8 @@ export const Home = () => {
                 }
             </main>
             <div className="cambioPagina">
-                {page > 1 && <button name="-" onClick={handleClickPage}>anterior</button>}
-                {movies.length > 0 && <button name="+" onClick={handleClickPage}>siguiente..</button>}
+                {page > 1 && <button name="-" onClick={handleClickPage}>🢀 anterior</button>}
+                {movies.length > 0 && <button name="+" onClick={handleClickPage}>siguiente 🢂</button>}
             </div>
         </div>
     )
