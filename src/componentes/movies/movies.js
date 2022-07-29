@@ -1,5 +1,6 @@
+import React from "react"
 const { REACT_APP_IMG_POSTER: POSTER } = process.env
-export const Movies = ({ pelicula, handelClick }) => {
+const Movies = ({ pelicula, handelClick }) => {
     return (
             <div className="cuadros" key={pelicula.id} onClick={() => handelClick(pelicula.id)}>
                 <div className="div-img">
@@ -12,3 +13,4 @@ export const Movies = ({ pelicula, handelClick }) => {
             </div>
     )
 }
+export default React.memo(Movies)

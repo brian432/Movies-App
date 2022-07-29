@@ -1,16 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-export const Search = () => {
+import React, { useState } from "react";
+import { scroll } from "../../services/scroll";
+const Search = ({onSubmit}) => {
     const [search, setSearch]=useState("");
-    const navigate = useNavigate();
+    
     const handleSubmit=(e)=>{
         e.preventDefault();
-        navigate(`/Movies-App/search/${search}`)
+        onSubmit(search)
         setSearch("");
-        window.scroll({
-            top: 0
-          });
+        scroll()
     }
     const handleChange=(e)=>{
         setSearch(e.target.value);
@@ -22,3 +19,4 @@ export const Search = () => {
         </form>
     )
 }
+export default React.memo(Search)

@@ -2,7 +2,7 @@ import { useMoviesDetails } from "../../../hooks/useMoviesDetails"
 
 const { REACT_APP_IMG_BACKGROUND: BACKGROUND_IMG, REACT_APP_IMG_POSTER: POSTER } = process.env
 export const Detalle = () => {
-    const { detalle, trailers, cast, imagenes }= useMoviesDetails()
+    const { detalle, trailers, cast, imagenes } = useMoviesDetails()
     return (
         <>
             <div className="background" style={imagenes && { backgroundImage: `url(${BACKGROUND_IMG}${imagenes})` }}>

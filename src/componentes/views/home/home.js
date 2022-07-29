@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { handlePage } from "../../../services/handlePage";
-import { Movies } from "../../movies/movies";
+import  Movies from "../../movies/movies";
 import { useMovies } from "../../../hooks/useMovies";
+import { useCallback } from "react";
 export const Home = () => {
     const { movies, genero, search, page, movie } = useMovies()
-    console.log(movies);
+
     const navigate = useNavigate();
-    const handelClick = (e) => {
+
+    const handelClick = useCallback((e) => {
         navigate(`/Movies-App/detalle?movieID=${e}`);
-    }
+    },[navigate])
+    
     return (
         <div className="container-home">
             <main className="home">

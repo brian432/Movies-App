@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Header />
       <AnimatePresence>
-        <Routes location={location} key={location.pathname}>
+        <Routes location={location} key={(location.pathname, location.search)}>
           <Route
             path="/Movies-App/"
             element={
