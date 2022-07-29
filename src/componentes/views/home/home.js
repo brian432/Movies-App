@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { handlePage } from "../../../services/handlePage";
-import  Movies from "../../movies/movies";
+import Movies from "../../movies/movies";
 import { useMovies } from "../../../hooks/useMovies";
 import { useCallback } from "react";
 export const Home = () => {
@@ -10,8 +10,13 @@ export const Home = () => {
 
     const handelClick = useCallback((e) => {
         navigate(`/Movies-App/detalle?movieID=${e}`);
-    },[navigate])
+    }, [navigate])
     
+    const handleClickPage = useCallback((e) => {
+        e.target.name === "+" ?
+            handlePage("+", search, movie, page, genero, navigate):
+            handlePage("-", search, movie, page, genero, navigate)
+    },[])
     return (
         <div className="container-home">
             <main className="home">
@@ -24,8 +29,8 @@ export const Home = () => {
                 }
             </main>
             <div className="cambioPagina">
-                {page > 1 && <button onClick={() => handlePage("-", search, movie, page, genero, navigate)}>anterior..</button>}
-                {movies.length > 0 && <button onClick={() => handlePage("+", search, movie, page, genero, navigate)}>siguiente..</button>}
+                {page > 1 && <button name="-" onClick={handleClickPage}>anterior</button>}
+                {movies.length > 0 && <button name="+" onClick={handleClickPage}>siguiente..</button>}
             </div>
         </div>
     )

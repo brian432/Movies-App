@@ -1,7 +1,6 @@
+import {scroll} from '../services/scroll'
 export const handlePage = (pagina, search, movie, page, genero, navigate) => {
-    window.scroll({
-        top: 0,
-    });
+    scroll()
     if (pagina === "+") {
         if (typeof search === 'undefined' && typeof genero === 'undefined') {
             page !== null ?

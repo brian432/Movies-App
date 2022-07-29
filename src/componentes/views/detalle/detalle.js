@@ -9,10 +9,10 @@ export const Detalle = () => {
             </div>
             <section id="Info">
                 <div className="div-img">
-                    <img src={`${POSTER}${detalle?.poster_path}`} alt={detalle.title} />
+                    <img src={`${POSTER}${detalle?.poster_path}`} alt={detalle?.title} />
                 </div>
                 <div className="informacion">
-                    <p className="titulo">{detalle.title} <span className="puntaje">{Math.round(detalle?.vote_average)}</span></p>
+                    <p className="titulo">{detalle.title} <span className="puntaje">{detalle?.vote_average?.toFixed(1)}</span></p>
                     <p>Fecha de estreno: {detalle.release_date}</p>
                     <p className="descripcion">{detalle.overview}</p>
                     <div>
@@ -22,7 +22,7 @@ export const Detalle = () => {
                                 cast.map((actor, indice) =>
                                     <div key={indice} className="div-actores">
                                         <div className="div-img-actor">
-                                            <img src={actor.profile_path ? `${POSTER}${actor.profile_path}` : 'no-img.jpg'} alt={actor.name} />
+                                            <img src={actor?.profile_path ? `${POSTER}${actor?.profile_path}` : 'no-img.jpg'} alt={actor.name} />
                                         </div>
                                         <p>{actor.name}</p>
                                     </div>
